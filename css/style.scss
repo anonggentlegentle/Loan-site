@@ -198,6 +198,18 @@ video {
   &__amount {
     font-size: 2rem;
   }
+
+  &__footer {
+    padding: 5rem 0;
+    background-color: var(--color-blue-dark);
+  }
+
+  &__footer-socials-box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    column-gap: 1rem;
+  }
 }
 
 .heading {
