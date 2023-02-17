@@ -144,6 +144,20 @@ video {
     }
   }
 
+  &__loan-term-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+  }
+
+  &__loan-term {
+    background-color: var(--color-blue-lightest);
+    border: none;
+    padding: 1em;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+
   &__field {
     border: none;
 
@@ -286,4 +300,8 @@ video {
 
 .unhide {
   display: block;
+}
+
+.border-button-style {
+  border: 5px solid var(--color-blue-dark);
 }

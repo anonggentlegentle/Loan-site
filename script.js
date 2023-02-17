@@ -3,10 +3,14 @@
 const btnCompute = document.querySelector(".btn--compute");
 const inputDate = document.querySelector(".main__input-date");
 const inputAmount = document.querySelector(".main__input-amount");
+const loanTermContainer = document.querySelector(".main__loan-term-box");
+const loanTermBtn = document.querySelectorAll(".main__loan-term");
 const datesTable = document.querySelector(".main__dates-table");
 const headingTotal = document.querySelector(".heading--total");
 const headingError = document.querySelector(".heading--error");
 
+let loanTerm = 1;
+let loanInterest = 0.015;
 let condition = true;
 
 const setCurrentDate = function () {
@@ -29,16 +33,29 @@ const setCurrentDate = function () {
 
 setCurrentDate();
 
+loanTermContainer.addEventListener("click", function (e) {
+  loanTermBtn.forEach(function (btn) {
+    btn.classList.remove("border-button-style");
+  });
+
+  e.target.closest(".main__loan-term").classList.add("border-button-style");
+
+  loanTerm = e.target.closest(".main__loan-term").dataset.term;
+  loanInterest = e.target.closest(".main__loan-term").dataset.interest;
+
+  console.log(loanTerm, loanInterest);
+});
+
 const loanTotal = function (num) {
   let amount = num;
-  const interest = amount * 0.035;
+  const interest = amount * loanInterest;
   amount += interest;
 
   return amount;
 };
 
 const loanMonthly = function (num) {
-  const monthly = Math.round(num / 12);
+  const monthly = Math.round(num / loanTerm);
 
   console.log(monthly);
 
@@ -56,7 +73,7 @@ const setTable = function () {
 
   const startDate = inputDate.value;
 
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= loanTerm; i++) {
     let newDate = new Date(startDate);
     newDate.setMonth(newDate.getMonth() + i);
 

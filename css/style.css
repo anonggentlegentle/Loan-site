@@ -127,6 +127,18 @@ video {
 .main .main__content .heading--2 {
   text-align: center;
 }
+.main__loan-term-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+}
+.main__loan-term {
+  background-color: var(--color-blue-lightest);
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  border-radius: 1rem;
+}
 .main__field {
   border: none;
   display: flex;
@@ -243,6 +255,10 @@ video {
 
 .unhide {
   display: block;
+}
+
+.border-button-style {
+  border: 5px solid var(--color-blue-dark);
 }
 
 /*# sourceMappingURL=style.css.map */
